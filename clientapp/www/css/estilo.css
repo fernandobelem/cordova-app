@@ -1,0 +1,80 @@
+html, body {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+.customtab {
+	display: -webkit-flex;
+	height: 100%;
+/*	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#212121), color-stop(100%,#37474f));
+	background: -webkit-linear-gradient(top, #212121 50%,#f5f5f5 100%);*/ 
+}
+
+body {
+ 	/*background: -webkit-linear-gradient(top, #212121 0%,#37474f   100%);*/
+ 	background-color: #f5f5f5 ;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.topo-fixo{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 99;
+}
+
+.rodape-fixo{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: 99;
+	margin-bottom: 0;
+}
+
+.section {
+	padding-top: 25px;
+}
+
+#botao-voltar{
+	.z-depth-1;
+	.topo-fixo;
+	.btn; 
+	.waves-effect; 
+	.waves-light; 
+	.red; 
+	.darken-3;
+}
+
+.pcarousel{
+	font-weight: bold;
+	position: absolute;  
+	top: 15%; 
+	left: 25%; 
+	right: 25%;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.trend-image{
+	max-width:100%; max-height:100%;
+}
+
+.td-modal{
+	background-color: #f5f5f5;
+	width: inherit;
+}
+
+.loadingPageOnlyShowGif {
+    position: absolute;
+    z-index:999;
+    text-align: center;
+    padding-top: 50%;
+    height:100%;
+    width:100%;
+    background: white;
+} 

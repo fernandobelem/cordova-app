@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="icons/material.css">
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <link rel="stylesheet" href="css/estilo.css"/>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/seuprojeto.js"></script>
+  <body>
+
+
+    <a class="z-depth-1 topo-fixo btn waves-effect waves-light red darken-3 center-align voltar" style="height: 7%; padding-top: 1%" ><font size="1.8em">Voltar</font>
+    </a>
+
+
+    <form class="col s12" id="msgform">
+      <ul class="collapsible" data-collapsible="expandable" style="margin-top:13%">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>Contato</div>
+          <div class="collapsible-body">
+           <div class="section">
+             <h5 class="red-text text-accent-3 center-align">Contato</h5>
+           </div>
+
+           <div class="row">
+            
+            <!--nome-->
+            <div class="input-field col s6">
+                <input id="nome" type="text" class="validate">
+                <label class="black-text" for="nome">Nome</label>
+            </div>
+
+            <!--sobrenome-->
+            <div class="input-field col s6">
+              <input id="sobrenome" type="text" class="validate">
+              <label class="black-text" for="sobrenome">Sobrenome</label>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <!--telefone-->
+            <div class="input-field col s6">
+              <input id="telefone" type="tel" class="validate">
+              <label class="black-text" for="telefone">Telefone</label>
+            </div>
+
+            <!--email-->
+            <div class="input-field col s6">
+              <input id="email" type="email" class="black-text validate" >
+              <label for="email" class="black-text" data-error="e-mail inválido">Email</label>
+            </div>
+
+          </div>
+
+          <!--campo mensagem -->
+          <div class="row col m10" style="padding-left: 3%; padding-right: 2.8%;">
+           <div class="input-field">
+             <textarea id="textarea-mensagem" class="materialize-textarea"></textarea>
+             <label class="black-text" for="textarea-mensagem">Mensagem</label>
+           </div>
+          </div>
+         </div>
+
+     </li>
+
+     <!-- ITEM2 -->
+     <li>
+      <div class="collapsible-header"><i class="material-icons">place</i>Ambiente</div>
+      <div class="collapsible-body">
+        <div class="section">
+          <h5 class="header red-text text-accent-3 center-align">Dados do ambiente</h5>
+        </div>
+        <div class="divider"/>
+      </div>
+
+      <br>
+
+      <a class="modal-trigger novo-ambiente btn-floating waves-effect waves-light red accent-2" 
+        style="display:block; margin:auto" href="#modal-ambiente">
+        <i class="material-icons">add</i>
+      </a>
+
+      <br>
+
+      <ul id="ambientes-adicionados" class="collection"><!-- preenchido dinamicante --> </ul> 
+
+      <br>
+    </li>
+  </ul>
+
+</form>
+
+<!--Botão Inicio -->
+<div class="fixed-action-btn enviar">
+  <a onclick="showToast()" class="btn-floating waves-effect waves-light red accent-2 ">
+    <i class="material-icons">done</i>
+  </a>
+</div> 
+<!--Botão fim -->
+
+<!--Solicitar orcamento fim -->
+
+<div class="row rodape-fixo z-depth-1 red darken-3">
+  <div class="col s12">
+    <p class="white-text center-align"><font size="1.8em">Todeschini Americana ©</font></p>
+  </div>
+</div>
+
+
+<!-- modal ambiente inicio-->
+<div id="modal-ambiente" class="modal td-modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4 class="center-align">Ambiente</h4>
+    <div class="divider"> </div>
+    <div id="divCategorias"><!-- preenchido dinamicante --></div>
+  </div>
+  <div class="modal-footer red darken-4">
+    <a href="#modal-objetos" class="modal-trigger white-text novo-objetos modal-close waves-effect waves-green btn-flat">Próximo</a>
+  </div>
+</div>
+<!-- modal ambiente fim -->
+
+<!-- modal objeto inicio-->
+<div id="modal-objetos" class="modal td-modal modal-fixed-footer">
+  <div class="modal-content">
+      <h4 class="center-align">Móveis e Objetos</h4>
+      <div class="divider"></div>
+      <div id="divObjetos"><!-- preenchido dinamicante --></div>
+  </div>
+  <div class="modal-footer red darken-4">
+    <a href="#modal-detalhes-objeto" class="modal-trigger white-text trigger-detalhes modal-close waves-effect waves-green btn-flat">Próximo</a>
+    <a class="voltar-ambiente white-text modal-action modal-close waves-effect waves-green btn-flat" style="float:left">Voltar</a>
+  </div>
+</div>
+<!-- modal objeto fim-->
+
+<!-- modal objeto inicio-->
+<div id="modal-detalhes-objeto" class="modal td-modal modal-fixed-footer">
+  <div class="modal-content">
+      <h4 class="center-align">Móveis e Objetos</h4>
+      <div class="divider"></div>
+      <div id="div-detalhes-objeto">
+         <br>
+         <div class="input-field">
+                <input id="tituloAmbiente" type="text" class="validate" placeholder="  ex: dormitório 1, banheiro 2... ">
+                <label class="black-text" for="tituloAmbiente" >Titulo ambiente</label>
+          </div>
+          <div class="input-field">
+                <input id="largura" type="text" placeholder="  ex: 1.35 x 2.0 " step="any" class="validate">
+                <label class="black-text" for="largura">Largura</label>
+          </div>
+          <div class="input-field">
+                <input id="altura" type="text" step="any" placeholder="  ex: 2.0" class="validate">
+                <label class="black-text" for="altura">Altura</label>
+          </div>
+
+          <div class="file-field input-field">
+            <div class="btn red darken-4">
+              <span>Inserir imagem</span>
+              <input type="file" multiple>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+          </div>
+        <!-- preenchido dinamicante -->
+      </div>
+  </div>
+  <div class="modal-footer red darken-4">
+    <a class="inserir-ambiente white-text modal-action modal-close waves-effect waves-green btn-flat">Inserir</a>
+    <a class="voltar-objetos white-text modal-action modal-close waves-effect waves-green btn-flat" style="float:left">Voltar</a>
+  </div>
+</div>
+<!-- modal objeto fim-->
+
+<!-- modal mensagem ambiente já existente-->
+<div id="modal-mensagem-ambiente-existente" class="modal td-modal modal-fixed-footer" style="height: 250px;">
+  <div class="modal-content">
+    <h4 class="center-align">Opps ..!</h4>
+    <div class="divider"> </div>
+    <div id="div-mensagem-ambiente" class="center-align"><p><b>Ambiente inválido</b></p><p>Verifique se você selecionou um ambiente ou se o mesmo já não foi incluso !</p></div>
+  </div>
+  <div class="modal-footer red darken-4">
+    <a class="modal-trigger white-text modal-close waves-effect waves-green btn-flat">Ok</a>
+  </div>
+</div>
+<!-- modal mensagem ambiente já existente -->
+
+
+</body>
+</html
